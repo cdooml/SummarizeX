@@ -1,27 +1,17 @@
+import Header from "@/components/Header";
+import Form from "@/components/LinkForm";
 import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center h-screen">
-      <div className="flex flex-col justify-start items-center h-[50vh]">
-        <h2>SummarizeX</h2>
-        <div className="bg-white rounded-lg p-1">
-          <form action="/send-data" method="post">
-            <input
-              className=""
-              type="text"
-              id="urlLink"
-              name="urlLink"
-              placeholder="Put Amazon product link "
-            />
-
-            <button
-              className="rounded-lg text-white bg-slate-800 p-2"
-              type="submit"
-            >
-              Send
-            </button>
-          </form>
+    <main className="flex flex-col items-center justify-start h-screen">
+      <Header />
+      <div className="w-full flex justify-center bg-gradient-to-r from-[#90acbb] from-0% via-[#597d91] via-50% to-[#90acbb] to-100%">
+        <div className="flex flex-col h-[50vh] w-10/12 sm:w-7/12 justify-center space-y-3 sm:space-y-10 ">
+          <h2 className="self-center text-lg sm:text-2xl font-semibold">
+            Paste An Amazon Product link Below then Click Send!
+          </h2>
+          <Form />
         </div>
       </div>
     </main>
