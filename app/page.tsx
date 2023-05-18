@@ -15,7 +15,10 @@ export default function Home() {
               placeholder="Put Amazon product link "
             />
 
-            <button className="rounded-lg bg-slate-800 p-2" type="submit">
+            <button
+              className="rounded-lg text-white bg-slate-800 p-2"
+              type="submit"
+            >
               Send
             </button>
           </form>
