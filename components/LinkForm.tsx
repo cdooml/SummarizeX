@@ -5,9 +5,9 @@ type Props = {};
 function LinkForm({}: Props) {
   return (
     <div className="bg-white rounded-xl py-1 px-2 text-sm sm:text-base">
-      <form action="/send-data" method="post" className="flex">
+      <form action="#" method="post" className="flex">
         <input
-          className="flex-1 focus:outline-none"
+          className="flex-1 focus:outline-none text-black"
           type="text"
           id="urlLink"
           name="urlLink"
