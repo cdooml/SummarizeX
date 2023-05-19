@@ -13,7 +13,7 @@ function Header({}: Props) {
       <div className="flex sm:space-x-5 space-x-2 sm:pr-5 text-xs sm:text-base">
         <div className="py-1 px-2 sm:px-4 self-center">about us</div>
         <div className="py-1 px-2 sm:px-4 self-center">help</div>
-        <div className="rounded-full bg-white text-[#597d91] py-1 px-2 sm:px-4 self-center">
+        <div className="rounded-full bg-white text-[#1A4F6A] py-1 px-2 sm:px-4 self-center">
           start
         </div>
       </div>
