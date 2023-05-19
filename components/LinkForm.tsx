@@ -41,7 +41,7 @@ function LinkForm({ setReview }: Props) {
         />
 
         <button
-          className="rounded-xl text-white bg-gradient-to-r from-[#90acbb] from-0% via-[#597d91] via-50% to-[#90acbb] to-100% px-4 py-2 self-end"
+          className="rounded-xl text-white bg-gradient-to-r from-[#90acbb] from-0% via-[#597d91] via-50% to-[#90acbb] to-100% px-4 py-2 self-end ml-2"
           type="submit"
         >
           Send

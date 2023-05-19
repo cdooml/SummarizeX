@@ -39,5 +39,5 @@ export default async function handler(
     reviewHolder += decoder.decode(value);
   }
   console.log(JSON.parse(reviewHolder));
-  res.status(200).json({ answer: JSON.parse(reviewHolder).response });
+  res.status(200).json({ answer: JSON.parse(reviewHolder).summary });
 }
