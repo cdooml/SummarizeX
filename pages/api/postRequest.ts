@@ -10,13 +10,12 @@ export default async function handler(
   const { url } = req.body;
   if (!url) {
     res.status(400).json({
-      answer:
-        "Please proide a prompt! Or no database connection! or no balance!",
+      answer: "something went wrong!",
     });
     return;
   }
   const response = await fetch(
-    "http://ec2-52-91-29-8.compute-1.amazonaws.com:8080/",
+    "http://ec2-52-91-29-8.compute-1.amazonaws.com:8080/summarize",
     {
       method: "POST",
       headers: {
@@ -32,12 +31,13 @@ export default async function handler(
 
   const reader = response.body!.getReader();
   const decoder = new TextDecoder();
+  let reviewHolder = "";
   let done = false;
   while (!done) {
     const { value, done: doneReading } = await reader.read();
     done = doneReading;
-
-    console.log(decoder.decode(value));
+    reviewHolder += decoder.decode(value);
   }
-  res.status(200).json({ answer: "success " });
+  console.log(JSON.parse(reviewHolder));
+  res.status(200).json({ answer: JSON.parse(reviewHolder).response });
 }

@@ -1,5 +1,5 @@
+import ClientProvider from "@/components/ClientProvider";
 import Header from "@/components/Header";
-import LinkForm from "@/components/LinkForm";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
           <h2 className="self-center text-lg sm:text-2xl font-semibold">
             Paste An Amazon Product link Below then Click Send!
           </h2>
-          <LinkForm />
+          <ClientProvider />
         </div>
       </div>
     </main>

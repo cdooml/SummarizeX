@@ -2,9 +2,11 @@
 
 import React, { FormEvent, useState } from "react";
 
-type Props = {};
+type Props = {
+  setReview: Function;
+};
 
-function LinkForm({}: Props) {
+function LinkForm({ setReview }: Props) {
   const [link, setLink] = useState("");
   const submitLink = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -20,7 +22,8 @@ function LinkForm({}: Props) {
       }),
     }).then((response) => {
       response.json().then((data) => {
-        console.log(data);
+        console.log(data.answer);
+        setReview(data.answer);
       });
     });
   };
