@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
-import Form from "@/components/LinkForm";
-import Image from "next/image";
+import LinkForm from "@/components/LinkForm";
 
 export default function Home() {
   return (
@@ -11,7 +10,7 @@ export default function Home() {
           <h2 className="self-center text-lg sm:text-2xl font-semibold">
             Paste An Amazon Product link Below then Click Send!
           </h2>
-          <Form />
+          <LinkForm />
         </div>
       </div>
     </main>
