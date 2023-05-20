@@ -48,16 +48,6 @@ function LinkForm({ setCache, setReview }: Props) {
             Send
           </button>
         </div>
-
-        <select
-          id="lang"
-          name="Langauge"
-          className="bg-white rounded-lg py-1 px-2 text-sm sm:text-base mt-2 text-[#036381]"
-          placeholder="Langauge"
-        >
-          <option value="arabic">Arabic</option>
-          <option value="english">English</option>
-        </select>
       </form>
     </div>
   );
