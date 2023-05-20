@@ -6,10 +6,11 @@ import SummaryCard from "./SummaryCard";
 
 function ClientProvider() {
   const [review, setReview] = useState("");
+  const [cache, setCache] = useState("");
   return (
     <div>
-      <LinkForm setReview={setReview} />
-      <SummaryCard review={review} />
+      <LinkForm setCache={setCache} setReview={setReview} />
+      <SummaryCard cache={cache} review={review} />
     </div>
   );
 }

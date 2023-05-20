@@ -4,9 +4,10 @@ import React, { FormEvent, useState } from "react";
 
 type Props = {
   setReview: Function;
+  setCache: Function;
 };
 
-function LinkForm({ setReview }: Props) {
+function LinkForm({ setCache, setReview }: Props) {
   const [link, setLink] = useState("");
   const submitLink = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -22,7 +23,8 @@ function LinkForm({ setReview }: Props) {
       }),
     }).then((response) => {
       response.json().then((data) => {
-        setReview(data.answer);
+        setCache(link);
+        setReview(data.summary);
       });
     });
   };
