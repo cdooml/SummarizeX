@@ -128,7 +128,7 @@ function SummaryCard({ cache, review }: Props) {
           onClick={() => setPlaceholer(review)}
           className="bg-[#1A4F6A] rounded-lg py-1 px-1 w-3/12 sm:w-full"
         >
-          Summary
+          Review
         </button>
         <button
           onClick={() => packaging()}
