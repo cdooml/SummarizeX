@@ -1,6 +1,7 @@
 "use client";
 
 import React, { FormEvent, useState } from "react";
+import { PulseLoader } from "react-spinners";
 
 type Props = {
   setReview: Function;
@@ -9,10 +10,13 @@ type Props = {
 
 function LinkForm({ setCache, setReview }: Props) {
   const [link, setLink] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const submitLink = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!link) return;
-
+    setLoading(true);
+    setReview("");
     await fetch("/api/postRequest", {
       method: "POST",
       headers: {
@@ -27,9 +31,10 @@ function LinkForm({ setCache, setReview }: Props) {
         setReview(data.summary);
       });
     });
+    setLoading(false);
   };
   return (
-    <div className=" ">
+    <div className="flex flex-col">
       <form onSubmit={submitLink}>
         <div className="flex bg-white rounded-xl py-1 px-2 text-sm sm:text-base">
           <input
@@ -49,6 +54,15 @@ function LinkForm({ setCache, setReview }: Props) {
           </button>
         </div>
       </form>
+      <div className="mx-auto mt-2">
+        <PulseLoader
+          color={"#FFFFFF"}
+          margin={5}
+          size={12}
+          speedMultiplier={0.35}
+          loading={loading}
+        />
+      </div>
     </div>
   );
 }

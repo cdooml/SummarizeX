@@ -1,10 +1,12 @@
 import React, { FormEvent, useEffect, useState } from "react";
+import { PulseLoader } from "react-spinners";
 
 type Props = { cache: string; review: string };
 
 function SummaryCard({ cache, review }: Props) {
   const [prompt, setPrompt] = useState("");
   const [placeholder, setPlaceholer] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     setPlaceholer(review);
@@ -12,7 +14,8 @@ function SummaryCard({ cache, review }: Props) {
   const sumbitQuestion = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!prompt) return;
-
+    setPlaceholer("");
+    setLoading(true);
     await fetch("/api/postQuestion", {
       method: "POST",
       headers: {
@@ -27,9 +30,12 @@ function SummaryCard({ cache, review }: Props) {
         setPlaceholer(data.answer);
       });
     });
+    setLoading(false);
   };
 
   const packaging = async () => {
+    setPlaceholer("");
+    setLoading(true);
     await fetch("/api/postQuestion", {
       method: "POST",
       headers: {
@@ -44,9 +50,12 @@ function SummaryCard({ cache, review }: Props) {
         setPlaceholer(data.answer);
       });
     });
+    setLoading(false);
   };
 
   const quality = async () => {
+    setPlaceholer("");
+    setLoading(true);
     await fetch("/api/postQuestion", {
       method: "POST",
       headers: {
@@ -61,6 +70,7 @@ function SummaryCard({ cache, review }: Props) {
         setPlaceholer(data.answer);
       });
     });
+    setLoading(false);
   };
   return (
     <div
@@ -76,9 +86,22 @@ function SummaryCard({ cache, review }: Props) {
           className="overflow-x-hidden overflow-y-auto scrollbar-thin scrollbar-track-[#D9D9D9] scrollbar-thumb-[#5D849A] scrollbar-track-rounded-full scrollbar-thumb-rounded-full h-full w-full px-4 text-justify "
           dir="rtl"
         >
-          <p className="text-sm sm:text-base" dir="ltr">
+          <div className="text-sm sm:text-base" dir="ltr">
             {placeholder}
-          </p>
+            <div
+              className={`${
+                loading ? "visible" : "hidden"
+              } flex justify-center align-center`}
+            >
+              <PulseLoader
+                color={"#1A4F6A"}
+                margin={5}
+                size={10}
+                speedMultiplier={0.35}
+                loading={true}
+              />
+            </div>
+          </div>
         </div>
         <form onSubmit={sumbitQuestion} className="mt-2 sm:mx-5 mx-2 ">
           <div className="flex bg-white rounded-xl py-1 px-2 text-sm sm:text-base border-2 ">
